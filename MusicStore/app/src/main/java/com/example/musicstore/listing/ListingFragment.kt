@@ -7,10 +7,10 @@ import androidx.core.view.MenuHost
 import androidx.fragment.app.Fragment
 import androidx.core.view.MenuProvider
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
@@ -20,10 +20,10 @@ import com.example.musicstore.databinding.FragmentListingBinding
 import com.example.musicstore.models.Album
 
 
-class ListingFragment : Fragment(), LifecycleObserver {
+class ListingFragment : Fragment(), LifecycleObserver{
 
     private lateinit var binding: FragmentListingBinding
-    private lateinit var viewModel: ListingViewModel
+    private val viewModel: ListingViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,17 +36,7 @@ class ListingFragment : Fragment(), LifecycleObserver {
             Navigation.createNavigateOnClickListener(R.id.action_listingFragment_to_detailFragment)
         )
 
-        viewModel = ViewModelProvider(this)[ListingViewModel::class.java]
-
         binding.lifecycleOwner = viewLifecycleOwner
-
-        lifecycle.addObserver(viewModel)
-
-        val nameObserver = Observer<List<Album>>{item ->
-            albumListView(item)
-        }
-
-        viewModel.albumList.observe(viewLifecycleOwner, nameObserver)
 
         return binding.root
     }
@@ -66,6 +56,14 @@ class ListingFragment : Fragment(), LifecycleObserver {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        val nameObserver = Observer<List<Album>>{item ->
+            albumListView(item)
+        }
+
+        viewModel.albumList.observe(viewLifecycleOwner, nameObserver)
+
+
         val menuHost: MenuHost = requireActivity()
         menuHost.addMenuProvider(object : MenuProvider {
             override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
