@@ -13,6 +13,7 @@ import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.example.musicstore.R
 import com.example.musicstore.databinding.AlbumViewBinding
@@ -42,7 +43,6 @@ class ListingFragment : Fragment(), LifecycleObserver{
     }
 
     private fun albumListView(item: List<Album>?) {
-        Toast.makeText(context, "text working", Toast.LENGTH_SHORT).show()
         item?.forEach{
             val viewBinding = AlbumViewBinding.inflate(LayoutInflater.from(requireContext()), binding.albumLayout, false)
             with(viewBinding){
@@ -71,10 +71,12 @@ class ListingFragment : Fragment(), LifecycleObserver{
             }
 
             override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
-                return NavigationUI.onNavDestinationSelected(menuItem, requireView().findNavController())
+                if (menuItem.itemId == R.id.titleFragment){
+                    findNavController().navigateUp()
+                    return true
+                }
+                return false
             }
-
-
         }, viewLifecycleOwner, Lifecycle.State.RESUMED)
     }
 

@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -20,7 +21,7 @@ import com.example.musicstore.models.Album
 class DetailFragment : Fragment(), LifecycleObserver {
 
     private lateinit var binding : FragmentDetailBinding
-    private lateinit var viewModel : ListingViewModel
+    private val viewModel: ListingViewModel by activityViewModels()
     private val album : Album = Album()
 
 
@@ -39,7 +40,7 @@ class DetailFragment : Fragment(), LifecycleObserver {
             Navigation.createNavigateOnClickListener(R.id.action_detailFragment_to_listingFragment)
         )
 
-        viewModel = ViewModelProvider(this)[ListingViewModel::class.java]
+
         binding.albumViewModel = album
 
 
