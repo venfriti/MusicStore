@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".DetailFragment">
+
+    <data>
+        <variable
+            name="albumViewModel"
+            type="com.example.musicstore.models.Album" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/titleConstraint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/albumText"
+                style="@style/detailText"
+                android:text="@string/album_name"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/albumEditText"
+                style="@style/editStyle"
+                android:layout_marginTop="0dp"
+                android:importantForAutofill="no"
+                android:inputType="textPersonName"
+                android:text="@={albumViewModel.name}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.031"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/albumText"
+                tools:ignore="LabelFor" />
+
+            <TextView
+                android:id="@+id/artistText"
+                style="@style/detailText"
+                android:text="@string/artist_name"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/albumEditText" />
+
+            <EditText
+                android:id="@+id/artistEditText"
+                style="@style/editStyle"
+                android:layout_marginTop="0dp"
+                android:inputType="textPersonName"
+                android:text="@={albumViewModel.artist}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/artistText"
+                tools:ignore="Autofill,LabelFor" />
+
+            <TextView
+                android:id="@+id/yearText"
+                style="@style/detailText"
+                android:text="@string/year"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/artistEditText" />
+
+            <EditText
+                android:id="@+id/yearEditText"
+                style="@style/editStyle"
+                android:layout_marginTop="0dp"
+                android:inputType="number"
+                android:text="@={albumViewModel.year}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/yearText"
+                tools:ignore="Autofill,LabelFor" />
+
+            <TextView
+                android:id="@+id/descriptionText"
+                style="@style/detailText"
+                android:text="@string/description"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/yearEditText" />
+
+            <EditText
+                android:id="@+id/descriptionEditText"
+                style="@style/editStyle"
+                android:layout_marginTop="0dp"
+                android:inputType="textPersonName"
+                android:text="@={albumViewModel.description}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/descriptionText"
+                android:layout_marginBottom="@dimen/padding_large"
+                tools:ignore="Autofill,LabelFor" />
+
+            <Button
+                android:id="@+id/saveButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/save"
+                android:background="@color/primaryDark"
+                android:textColor="@android:color/white"
+                app:layout_constraintBaseline_toBaselineOf="@+id/cancelButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/cancelButton" />
+
+            <Button
+                android:id="@+id/cancelButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:text="@string/cancel"
+                android:textColor="@color/primaryDark"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="40dp"
+                app:layout_constraintEnd_toStartOf="@+id/saveButton"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/descriptionEditText"
+                app:layout_constraintVertical_bias="1.0" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</layout>
