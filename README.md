@@ -2,9 +2,10 @@
 Android project that stores music lists built using MVVM and LiveData Lifecycle classes.
 
 # Prerequisites
-Android Studio
-Kotlin 1.7.0
-Android Gradle Plugin 7.2.1
+To build this project, you require:
+* Android Studio 
+* Kotlin 1.7.0 
+* Android Gradle Plugin 7.2.1
 
 # Screenshots
 <p align="center">
