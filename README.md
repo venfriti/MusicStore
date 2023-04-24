@@ -1,5 +1,4 @@
 # MusicStore
-Android project that stores music lists. Built with MVVM and Clean architecture.
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/90982374/233835221-0b082bb0-edff-4bcc-912b-2829cac1ed72.png" alt="Image description" width="230" height="500">
