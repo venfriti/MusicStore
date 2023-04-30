@@ -26,7 +26,7 @@ class ListingFragment : Fragment(), LifecycleObserver{
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_listing, container, false)
 
@@ -48,7 +48,7 @@ class ListingFragment : Fragment(), LifecycleObserver{
                 yearName.text = it.year
                 descriptionName.text = it.description
             }
-            binding.albumLayout?.addView(viewBinding.root)
+            binding.albumLayout.addView(viewBinding.root)
         }
     }
 

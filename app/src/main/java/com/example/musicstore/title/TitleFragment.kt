@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.LifecycleObserver
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.example.musicstore.R
 import com.example.musicstore.databinding.FragmentTitleBinding
@@ -19,7 +18,7 @@ class TitleFragment : Fragment(), LifecycleObserver {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
 
         binding = DataBindingUtil.inflate(
