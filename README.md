@@ -1,11 +1,14 @@
 # MusicStore
-Android project that stores music lists built using MVVM and LiveData Lifecycle classes.
+Music Store allows you to store album reviews, built using MVVM architecture and LiveData Lifecycle classes.
 
-# Prerequisites
-To build this project, you require:
-* Android Studio 
-* Kotlin 1.7.0 
-* Android Gradle Plugin 7.2.1
+# Used Libraries and Technologies
+[Kotlin](https://kotlinlang.org/) - Primary programming language.
+
+[MVVM](https://developer.android.com/topic/architecture) - Structured Model-View-ViewModel architecture.
+
+[AndroidX Components](https://developer.android.com/jetpack/androidx/) - Jetpack components.
+
+[LiveData](https://developer.android.com/topic/libraries/architecture/livedata) - Observable data holder class.
 
 # Screenshots
 <p align="center">
